@@ -12,6 +12,7 @@ import math
 - If high equals low and element is not same as target, it means target does not exist in the list.
 - The array must be sorted
 - Stop when you have found the target or when low > high
+- Complexity is O(log n) since it depends with the height of the tree
 '''
 def binary_search_iterative(haystack, needle):
     left = 1
@@ -31,6 +32,23 @@ def binary_search_iterative(haystack, needle):
             left = middle + 1
     print('Element not found')
     return -1
+
+def binary_search_recursive(haystack, needle, low, high):
+    if(low == high):
+        if(haystack[low] == needle):
+            return low
+        else:
+            return 0
+    else:
+        middle = math.floor((low + high) /2)
+        if(haystack[middle] == needle):
+            return middle
+        elif(needle < haystack[middle]):
+            return binary_search_recursive(haystack, needle, low, middle - 1)
+        else:
+            return binary_search_recursive(haystack, needle, middle + 1, high)
+        
+            
     
 
 
@@ -40,3 +58,5 @@ def binary_search_iterative(haystack, needle):
 if __name__ == '__main__':
     indexOfElement = binary_search_iterative([11,12,13,14,15], 13)
     print(indexOfElement)
+    indexOfElementRecusrsive = binary_search_recursive([11,12,13,14,15], 11, 1, 5)
+    print(indexOfElementRecusrsive)
