@@ -53,6 +53,7 @@
  - The formula is called **Relaxation**
 
  - A bit complex to work with negative cost of edges. (May or may not work)
+ - Relaxation only done once
 
  ## Bellman Ford Algorithm
  - Single source shortest path problem
@@ -60,3 +61,12 @@
  - Slower than Dijkstra
  - When n is the number of vertices, you have to relax all the edges, n-1 times
  - Uses the same relaxation technique
+ - Time complexity is O(n^3)
+ - Will not give the correct answer when the sum of a cycle is a negative value
+
+
+
+ # Algorithm concepts
+ ## Recurrence relation
+ - Time complexity is O(n)
+ - Where T is time T(n) = T(n-1) + 1
